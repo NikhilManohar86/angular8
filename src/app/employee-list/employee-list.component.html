@@ -7,7 +7,7 @@
     <th>Age</th>
     <th>Image</th>
   </tr>
-  <tr *ngFor="let employee of employeeLists; let i = index;">
+  <tr *ngFor="let employee of employeeLists; let i = index;" (click)="selectEmployee(employee.id)">
     <td>{{ employee.id }}</td>
     <td>{{ employee.employee_name }}</td>
     <td>{{ employee.employee_salary }}</td>

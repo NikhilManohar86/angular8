@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpserviceService } from "../service/httpservice.service";
 import {Observable} from 'rxjs';
 
@@ -9,7 +10,7 @@ import {Observable} from 'rxjs';
 })
 export class EmployeeListComponent implements OnInit {
   employeeLists : any;
-  constructor(private httpservice : HttpserviceService) { }
+  constructor(private httpservice : HttpserviceService, private route : Router) { }
 
   ngOnInit() {
     this.getEmployeeList();
@@ -20,6 +21,11 @@ export class EmployeeListComponent implements OnInit {
       console.log(results);
       this.employeeLists = results['data'];
     });
+  }
+
+  selectEmployee(id : number){
+   // this.route.navigate(['/employee-detail'], { queryParams: { id: id } });
+   this.route.navigate(['/employee-detail/'+id]);
   }
 
 }

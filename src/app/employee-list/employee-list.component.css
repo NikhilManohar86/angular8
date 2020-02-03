@@ -1,0 +1,7 @@
+table tr:nth-child(even){
+    background-color: bisque;
+}
+table tr{
+    cursor: pointer;
+    min-height: 50px;
+}
