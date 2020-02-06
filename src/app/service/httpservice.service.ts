@@ -6,7 +6,7 @@ import { map  } from "rxjs/operators";
   providedIn: 'root'
 })
 export class HttpserviceService {
-  baseURL = 'http://dummy.restapiexample.com/api/v1/';
+  baseURL = 'https://jsonplaceholder.typicode.com/';
 
   constructor(private http: HttpClient) { }
 
@@ -15,5 +15,10 @@ export class HttpserviceService {
     // .pipe(map((res:any) => {
     //   return res;
     // }));
+  }
+  postMethod(endpoint: string, data: any){
+    return this.http.post(this.baseURL + endpoint, data).pipe(map((res:any) => {
+      return res;
+    }));
   }
 }

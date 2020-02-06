@@ -15,7 +15,7 @@ export class EmployeeDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.empID = params.get('id');
-      this.httpService.getMethod("employee/"+this.empID).subscribe((res)=>{
+      this.httpService.getMethod("posts/"+this.empID).subscribe((res)=>{
         this.empDetail = res;
         console.log(res);
       });

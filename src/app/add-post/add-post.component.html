@@ -1,0 +1,10 @@
+<h2>
+  Add Post
+</h2>
+<div>
+  <form [formGroup]="postForm" (submit)="onSubmit()">
+      <input type="text" formControlName="title" placeholder="Enter Title" />
+      <input type="text" placeholder="Enter Body" formControlName="body" />
+      <input type="submit" value="Submit">
+  </form>
+</div>

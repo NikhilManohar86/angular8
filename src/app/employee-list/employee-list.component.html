@@ -1,17 +1,13 @@
-<h2>Employee List</h2>
+<h2>To Do List  <a routerLink="/add-post">Add Post</a></h2>
 <table>
   <tr>
     <th>ID</th>
-    <th>Employee Name</th>
-    <th>Salary</th>
-    <th>Age</th>
-    <th>Image</th>
+    <th>TItle</th>
+    <th>Body</th>
   </tr>
   <tr *ngFor="let employee of employeeLists; let i = index;" (click)="selectEmployee(employee.id)">
     <td>{{ employee.id }}</td>
-    <td>{{ employee.employee_name }}</td>
-    <td>{{ employee.employee_salary }}</td>
-    <td>{{employee.employee_age }}</td>
-    <td>{{ employee.profile_image }}</td>
+    <td>{{ employee.title }}</td>
+    <td>{{ employee.body }}</td>
   </tr>
 </table>
