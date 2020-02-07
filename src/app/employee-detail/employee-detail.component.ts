@@ -10,6 +10,7 @@ import { HttpserviceService } from '../service/httpservice.service'
 export class EmployeeDetailComponent implements OnInit {
   empID;
   empDetail;
+  isEdit : boolean ;
   constructor(private route: ActivatedRoute, private httpService : HttpserviceService) { }
 
   ngOnInit() {
@@ -17,9 +18,22 @@ export class EmployeeDetailComponent implements OnInit {
       this.empID = params.get('id');
       this.httpService.getMethod("posts/"+this.empID).subscribe((res)=>{
         this.empDetail = res;
+        this.isEdit=false;
         console.log(res);
       });
     })
+  }
+
+  editMode(){
+    this.isEdit = true;
+  }
+
+  onUpdate(){
+    this.httpService.putMethod("posts/"+this.empID, this.empDetail).subscribe((res)=>{
+      console.log(res);
+      alert("Successfully update");
+      this.isEdit = false;
+    });
   }
 
 }

@@ -1,6 +1,12 @@
 <p>
-  To Do</p>
-<div>
+  To Do <button (click)="editMode()">Edit</button></p>
+<div *ngIf="!isEdit && empDetail">
   <p><b>{{ empDetail.id }}. {{ empDetail.title }}</b></p>
   <p>{{ empDetail.body }}</p>
+</div>
+<div *ngIf="isEdit">
+    <input type="text" [(ngModel)]="empDetail.id" disabled />
+    <input type="text" [(ngModel)]="empDetail.title" />
+    <input type="text" [(ngModel)]="empDetail.body" />
+    <input type="button" value="update" (click)="onUpdate()" />
 </div>

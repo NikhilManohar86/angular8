@@ -21,4 +21,9 @@ export class HttpserviceService {
       return res;
     }));
   }
+  putMethod(endpoint: string, data: any){
+    return this.http.put(this.baseURL + endpoint, data).pipe(map((res:any) => {
+      return res;
+    }));
+  }
 }
